@@ -1,12 +1,11 @@
-from utils.config import API_KEY, BASE_URL
 from utils.weather_models import WeatherResponseModel
+import pytest
 
-def test_weather_api_response(api_client):
+@pytest.mark.api
+def test_weather_api_response(api_client, get_weather_data):
     """Test that OpenWeather API returns a valid response matching the expected model."""
-    city = "Novi Sad"
-    url = f"{BASE_URL}weather?q={city}&appid={API_KEY}"
-    response = api_client.get(url)
+    response = api_client.get(get_weather_data["url"])
 
     # Validate response using Pydantic
     weather_data = WeatherResponseModel(**response.json())
-    assert weather_data.name == city, f"Expected city '{city}', but got '{weather_data.name}'"
+    assert weather_data.name == get_weather_data["city"], f"Expected city '{get_weather_data['city']}', but got '{weather_data.name}'"
