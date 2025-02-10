@@ -1,6 +1,6 @@
 from playwright.sync_api import Page
 
-class WeatherPage:
+class MainPageSearch:
     def __init__(self, page: Page):
         self.page = page
         self.search_box = "input[placeholder='Search city']"
@@ -8,7 +8,7 @@ class WeatherPage:
         self.temp_display = ".current-temp"
 
     def open(self):
-        """Open OpenWeather website."""
+        """OpenWeather main page."""
         self.page.goto("https://openweathermap.org")
 
     def search_city(self, city_name: str):

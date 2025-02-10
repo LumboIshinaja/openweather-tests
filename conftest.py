@@ -2,7 +2,7 @@ import pytest
 import requests
 from playwright.sync_api import sync_playwright
 from utils.config import API_KEY, BASE_URL
-from pages.weather_page import WeatherPage
+from pages.main_page_search import MainPageSearch  
 
 # ✅ Fixture for API tests (requests session)
 @pytest.fixture(scope="session")
@@ -40,8 +40,8 @@ def page(browser):
 
 # ✅ Fixture for UI tests (test setup)
 @pytest.fixture(scope="function")
-def weather_ui(page):
-    """Provides a WeatherPage instance for UI tests."""
-    weather_page = WeatherPage(page)
-    weather_page.open()
-    return weather_page
+def main_page(page):
+    """Provides a MainPageSearch instance for UI tests."""
+    main_page = MainPageSearch(page)
+    main_page.open()
+    return main_page
