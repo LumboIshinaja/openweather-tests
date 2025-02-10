@@ -1,7 +1,7 @@
 from pydantic import BaseModel, ConfigDict
 from typing import List, Dict, Any, Optional
 
-class WeatherDescription(BaseModel):
+class WeatherDescriptionModel(BaseModel):
     id: int
     main: str
     description: str
@@ -9,25 +9,26 @@ class WeatherDescription(BaseModel):
 
     model_config = ConfigDict(extra="forbid")
 
-class MainWeatherData(BaseModel):
+class MainWeatherDataModel(BaseModel):
     temp: float
     feels_like: float
     temp_min: float
     temp_max: float
     pressure: int
     humidity: int
-    sea_level: Optional[int] = None  # Now optional
-    grnd_level: Optional[int] = None  # Now optional
+    sea_level: Optional[int] = None
+    grnd_level: Optional[int] = None
 
     model_config = ConfigDict(extra="forbid")
 
-class WeatherResponse(BaseModel):
+class WeatherResponseModel(BaseModel):
     coord: Dict[str, float]
-    weather: List[WeatherDescription]
-    main: MainWeatherData
+    weather: List[WeatherDescriptionModel]
+    main: MainWeatherDataModel
     visibility: int
     wind: Dict[str, Any]
     clouds: Dict[str, int]
+    rain: Optional[Dict[str, float]] = None
     dt: int
     sys: Dict[str, Any]
     timezone: int
