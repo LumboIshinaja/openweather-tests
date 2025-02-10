@@ -88,8 +88,6 @@ playwright_tests/
 
 
 ## 📢 Contributors
-- **[Milos Jovanovic]** - Test Engineer
+- **Milos Jovanovic** - Test Engineer
 
 ---
-
-### 🚀 **Happy Testing!**
