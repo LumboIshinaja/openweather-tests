@@ -6,6 +6,7 @@ This project automates the **testing of OpenWeather's web UI and API** using **P
 - **✅ API Testing**: Verifies OpenWeather API responses and structure.
 - **✅ UI Testing**: Automates city weather searches on OpenWeather's website.
 - **✅ Playwright & Pytest**: End-to-end testing framework for both FE & BE.
+- **✅ Fixtures for Test Setup**: Centralized test setup for API & UI testing.
 
 ---
 
@@ -13,7 +14,7 @@ This project automates the **testing of OpenWeather's web UI and API** using **P
 
 ### 1️⃣ **Clone the Repository**
 ```sh
-git clone https://github.com/your-repo-name.git
+git clone https://github.com/LumboIshinaja/openweather-tests.git
 cd playwright_tests
 ```
 
@@ -47,17 +48,12 @@ pytest
 
 ### **✅ Run Only API Tests**
 ```sh
-pytest tests/tests_be/
+pytest -m api
 ```
 
 ### **✅ Run Only UI Tests (Headless)**
 ```sh
-pytest tests/tests_fe/
-```
-
-### **✅ Run UI Tests in Visible Browser**
-```sh
-pytest tests/tests_fe/ --headed
+pytest -m ui
 ```
 
 ---
@@ -72,7 +68,7 @@ playwright_tests/
 │   ├── weather_models.py      # Pydantic models for API validation
 │
 │── pages/                     # Playwright Page Object Model (POM)
-│   ├── weather_page.py        # UI interactions for weather search
+│   ├── main_page_search.py    # UI interactions for city search
 │
 │── tests/
 │   │── tests_be/              # Backend API tests
@@ -82,21 +78,17 @@ playwright_tests/
 │   │── tests_fe/              # Frontend UI tests
 │   │   ├── test_weather_ui.py # UI automation for city search
 │
+├── conftest.py                # Shared fixtures for API & UI tests
+├── pytest.ini                 # Pytest configurations (markers, warnings)
 ├── requirements.txt           # Python dependencies
 ├── README.md                  # Project documentation
 ```
 
 ---
 
-## 📝 Future Improvements
-- 🔹 **Expand test coverage** (e.g., multi-city search, forecast validation).
-- 🔹 **Integrate with CI/CD pipelines** (GitHub Actions, Jenkins).
-- 🔹 **Improve error handling & logging**.
-
----
 
 ## 📢 Contributors
-- **[Your Name]** - Test Engineer
+- **[Milos Jovanovic]** - Test Engineer
 
 ---
 
