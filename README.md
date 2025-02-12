@@ -56,7 +56,7 @@ pytest -m api
 pytest -m api -n auto
 ```
 
-### **✅ Run Only UI Tests (Headless)**
+### **✅ Run Only UI Tests**
 ```sh
 pytest -m ui
 ```
