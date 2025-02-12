@@ -5,14 +5,13 @@ def search_city_fixture(main_page):
     """Fixture to search for a city and return the page."""
     city_name = "Novi Sad"
     main_page.search_city(city_name)
-    return main_page.page 
+    return main_page.page
 
 @pytest.mark.ui
 def test_city_name_displayed(search_city_fixture):
     """Test that the searched city name is correctly displayed."""
-    city_name = "Novi Sad"
-    city_heading = search_city_fixture.get_by_role("heading", name=city_name).text_content()
-    assert city_name in city_heading, f"Expected '{city_name}' in heading, but got '{city_heading}'"
+    city_heading = search_city_fixture.get_by_role("heading", name="Novi Sad").text_content()
+    assert "Novi Sad" in city_heading, f"Expected 'Novi Sad' in heading, but got '{city_heading}'"
 
 @pytest.mark.ui
 def test_temperature_displayed(search_city_fixture):
