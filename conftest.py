@@ -15,10 +15,11 @@ def api_client():
 # ✅ Fixture for API tests (test setup)
 @pytest.fixture(scope="module")
 def get_weather_data():
-    """Provides shared test data for API tests."""
-    city = "Novi Sad"
-    url = f"{BASE_URL}weather?q={city}&appid={API_KEY}"
-    return {"city": city, "url": url}
+    """Provides a function to generate API URLs for different cities."""
+    def _get_data(city):
+        url = f"{BASE_URL}weather?q={city}&appid={API_KEY}"
+        return {"city": city, "url": url}
+    return _get_data
 
 # ✅ Fixture for Playwright Browser (UI tests)
 @pytest.fixture(scope="session")
