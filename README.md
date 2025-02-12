@@ -51,9 +51,19 @@ pytest
 pytest -m api
 ```
 
+### **✅ Run All UI Tests in Parallel**
+```sh
+pytest -m api -n auto
+```
+
 ### **✅ Run Only UI Tests (Headless)**
 ```sh
 pytest -m ui
+```
+
+### **✅ Run All UI Tests in Parallel**
+```sh
+pytest -m ui -n auto
 ```
 
 ---
