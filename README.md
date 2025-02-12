@@ -72,6 +72,7 @@ playwright_tests/
 │
 │── tests/
 │   │── tests_be/              # Backend API tests
+│   │   ├── test_auth.py       # API auth validation
 │   │   ├── test_status.py     # API status tests
 │   │   ├── test_response.py   # API response validation
 │   │
