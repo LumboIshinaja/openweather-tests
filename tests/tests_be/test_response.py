@@ -40,15 +40,14 @@ def test_weather_api_response(fetch_weather_data, get_weather_data):
     assert weather_data.name == get_weather_data(city)["city"], f"Expected city '{city}', but got '{weather_data.name}'"
 
 @pytest.mark.api
-def test_weather_response_contains_required_fields(fetch_weather_data):
+@pytest.mark.parametrize("required_field", ["main", "wind", "weather"])
+def test_weather_response_contains_required_fields(fetch_weather_data, required_field):
     """Test that the API response contains required weather data fields."""
     city = "Novi Sad"
     response = fetch_weather_data(city)
     data = response.json()
 
-    required_fields = ["main", "wind", "weather"]
-    for field in required_fields:
-        assert field in data, f"Response missing '{field}' section"
+    assert required_field in data, f"Response missing '{required_field}' section"
 
 @pytest.mark.api
 def test_weather_response_valid_temperature(extract_weather_fields):
