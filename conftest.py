@@ -26,7 +26,7 @@ def get_weather_data():
 def browser():
     """Launches Playwright browser for UI tests."""
     with sync_playwright() as p:
-        browser = p.chromium.launch(headless=False)  # Change to True if you want headless mode
+        browser = p.chromium.launch(headless=True)  # Change to False if you want headed mode
         yield browser
         browser.close()
 
