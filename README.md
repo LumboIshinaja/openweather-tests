@@ -7,6 +7,7 @@ This project automates the **testing of OpenWeather's web UI and API** using **P
 - **✅ UI Testing**: Automates city weather searches on OpenWeather's website.
 - **✅ Playwright & Pytest**: End-to-end testing framework for both FE & BE.
 - **✅ Fixtures for Test Setup**: Centralized test setup for API & UI testing.
+- **✅ CI/CD Integration**: GitHub Actions for automated test execution.
 
 ---
 
@@ -68,10 +69,28 @@ pytest -m ui -n auto
 
 ---
 
+## 👤 CI/CD with GitHub Actions
+The project includes **GitHub Actions** workflow to **automatically run tests** on every **push to `main`** and **pull request**:
+- Located in `.github/workflows/ci.yml`
+- Secrets configured via **GitHub → Repo → Settings → Secrets → Actions**:
+  - `OPENWEATHER_API_KEY`
+
+### **CI/CD Setup Summary:**
+1. Automatically runs on **push to `main`** and **PRs targeting `main`**.
+2. **API & UI tests** executed in a **Linux environment**.
+3. API Key securely stored as **GitHub Secret**.
+
+
+---
+
 ## 📂 Project Structure
 
 ```
 playwright_tests/
+│── .github/                   # CI/CD Workflows
+│   └── workflows/
+│       └── ci.yml             # GitHub Actions config
+│ 
 │── utils/                     # Utility functions & configurations
 │   ├── config.py              # API key & base URLs
 │   ├── api_client.py          # API request handler
