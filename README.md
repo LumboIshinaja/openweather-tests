@@ -22,8 +22,9 @@ cd playwright_tests
 ### 2️⃣ **Create a Virtual Environment**
 ```sh
 python -m venv venv
-source venv/bin/activate  # macOS/Linux
-venv\Scripts\activate      # Windows
+source venv/bin/activate  # macOS/Linux/Git Bash (Windows)
+venv\Scripts\activate      # Windows CMD
+venv\Scripts\Activate.ps1  # Windows PowerShell
 ```
 
 ### 3️⃣ **Install Dependencies**
@@ -34,8 +35,9 @@ playwright install
 
 ### 4️⃣ **Set API Key as Environment Variable**
 ```sh
-set OPENWEATHER_API_KEY=your_api_key_here  # Windows
-export OPENWEATHER_API_KEY=your_api_key_here  # macOS/Linux
+export OPENWEATHER_API_KEY=your_api_key_here  # macOS/Linux/Git Bash (Windows)
+set OPENWEATHER_API_KEY=your_api_key_here     # Windows CMD
+$env:OPENWEATHER_API_KEY="your_api_key_here"  # Windows PowerShell
 ```
 
 ---
