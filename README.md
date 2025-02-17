@@ -117,7 +117,7 @@ playwright_tests/
 ---
 
 
-## 📢 Contributors
+## 📢 Creator
 - **Milos Jovanovic** - Test Engineer
 
 ---
