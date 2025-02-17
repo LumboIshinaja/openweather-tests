@@ -22,7 +22,7 @@ cd playwright_tests
 ### 2️⃣ **Create a Virtual Environment**
 ```sh
 python -m venv venv
-source venv/bin/activate  # macOS/Linux/Git Bash (Windows)
+source venv/Scripts/activate  # macOS/Linux/Git Bash (Windows)
 venv\Scripts\activate      # Windows CMD
 venv\Scripts\Activate.ps1  # Windows PowerShell
 ```
